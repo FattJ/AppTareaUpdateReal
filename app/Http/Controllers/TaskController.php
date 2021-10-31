@@ -38,26 +38,26 @@ class TaskController extends Controller
         return view('tasks.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
+
         $task = new Task;
 
         $task->title = $request->title;
         $task->deadline = $request->deadline;
         $task->description = $request->description;
         $task->is_complete = false;
+        $task->project_id=$request->project_id;
 
         $task->save();
 
         Session::flash('exito', 'Se guardo tu tarea correctamente');
-
-        return redirect()->route('tareas.index');
+        if ($requesr->source =='proyectos') {
+            return redirect()->route('proyectos.index');
+        }else{
+          return redirect()->route('tareas.index');  
+        }
+        
     }
 
     /**
