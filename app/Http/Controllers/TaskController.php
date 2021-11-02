@@ -52,7 +52,7 @@ class TaskController extends Controller
         $task->save();
 
         Session::flash('exito', 'Se guardo tu tarea correctamente');
-        if ($requesr->source =='proyectos') {
+        if ($request->source =='proyectos') {
             return redirect()->route('proyectos.index');
         }else{
           return redirect()->route('tareas.index');  

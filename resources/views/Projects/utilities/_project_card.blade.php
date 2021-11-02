@@ -21,17 +21,12 @@
     	<h5>{{ $project->name }}</h5>
     	<p>{{ $project->description }}</p>
     	<hr>
-    	<a href="" data-toggle="modal" data-target="#modalCreateTask"class="btn btn-outline-dark btn-sm">Crear Tarea </a>
+    	<a href="" data-toggle="modal" data-target="#modalCreateTask_{{ $project->id }}"class="btn btn-outline-dark btn-sm">Crear Tarea </a>
 
     	@foreach($project->tasks as $task)
     	<div class="d-flex align-items-center justify-content-between">
     		<div style="width 60%;">
-    			<p class="mb-0">{{ $task-> tittle }}</p>
-    			<@if($task->is_complete == false)
-                  <span class="badge badge-warning"> No disponible</span>
-                      @else
-                  <span class="badge badge-success">Completar</span>
-                       @endif
+    			<p class="mb-0">{{ $task->title }}</p>
     		</div>
     		<div>
     			@if($task->is_complete == false)
@@ -63,7 +58,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="modalCreateTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalCreateTask_{{ $project->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Crear tarea</h5>
@@ -100,7 +95,7 @@
       </div>
       <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-      <button type="button" class="btn btn-primary">Guardar Tarea</button>
+      <button type="submit" class="btn btn-primary">Guardar Tarea</button>
   </div>
   </form>
 </div>
