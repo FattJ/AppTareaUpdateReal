@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-	      <div class="col-m2-12 text-rigth">
+    <div class="row justify-content-center">
+	       <div class="col-md-12 text-right">
 		      <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalProyectos">Crear nuevo proyecto</a>
 	     </div>
     </div>
@@ -15,13 +15,15 @@
     	</div>
     	@foreach($projects as $project)
     	<div class="col-md-4">
-    		@include ('projects.utilities._project_card')
-    		</div>
-    	@endforeach
+    		<div class="card card-body">
+        @include('projects.utilities._project_card')
+      </div>
     </div>
+       @endforeach
+   </div>
 </div>
 
-@include ('projects.utilities._create_modal')
+     @include('projects.utilities._create_modal')
 
-  @endsection
 
+      @endsection

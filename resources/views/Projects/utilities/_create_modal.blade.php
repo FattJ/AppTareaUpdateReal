@@ -32,14 +32,25 @@
              </div>
           </div>
           
-<div class="form-group">
-    <label>Descripción</label>
-    <textarea class="form-control" name="description" rows="3"></textarea>
-</div>
-</div>
-  <div class="modal-footer">
-     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-     <button type="submit" class="btn btn-primary">Guardar Proyecto</button>
+        <div class="form-group">
+          <label>Descripción</label>
+        <textarea class="form-control" name="description" rows="3"></textarea>
+    </div>
+  </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Selecciona usuario</label>
+            @foreach($users as $user)
+        <div class="form-check">
+           <input class="form-check-input" type="checkbox" value="{{ $user->id }}" id="defaultCheck1" name="user_id[]">
+          <label class="form-check-label" for="defaultCheck1">
+            {{ $user->name }}
+          </label>
+            @endforeach
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar Proyecto</button>
   </div>
 </form>
 </div>
