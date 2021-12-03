@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,6 +13,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -26,7 +29,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    TAREAS
+                    LetterApp
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -36,15 +39,15 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('home') }}">Inicio</a>
+                                    <a class="nav-link" href="{{ route('home') }}">Perfil</a>
                                 </li>
 
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('proyectos.index') }}">Proyectos</a>
+                                    <a class="nav-link" href="{{ route('proyectos.index') }}">Reseñas</a>
                                 </li>
 
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('tareas.index') }}">Tareas</a>
+                                    <a class="nav-link" href="{{ route('tareas.index') }}">Watchlist</a>
                                 </li>
 
                     </ul>
@@ -100,6 +103,24 @@
             @yield('content')
         </main>
     </div>
+<script>
+    var contador;
+    function calificar(item){
+        console.log(item);
+        contador=item.id[0];
+        let nombre = item.id.substring(1);
+        for(let i=0;i<5:i++){
+            //i=0;
+            if(i<contador){
+                document.getElementById((i+1)+nombre).style.color="orange"; 
+            }else{
+                document.getElementById((i+1)+nombre).style.color="black";
+            }
+
+            }
+        }
+    
+</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>

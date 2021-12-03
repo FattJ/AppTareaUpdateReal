@@ -12,17 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+route::resource('/', GalleryController::class)->except('create','destroy','show');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-route::resource('/tareas', App\Http\Controllers\TaskController::class);
+route::resource('/tareas', TaskController::class);
 
-route::resource('/proyectos', App\Http\Controllers\ProjectController::class);
+route::resource('/proyectos',ProjectController::class);
 
 Route::get('/cambiar-estado/{id}', 'App\Http\Controllers\TaskController@status')->name('tareas.status');

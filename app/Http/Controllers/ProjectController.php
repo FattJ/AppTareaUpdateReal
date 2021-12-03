@@ -18,6 +18,8 @@ class ProjectController extends Controller
 
         $tasks = Task::all();
 
+        
+
         return view('projects.index')->with('projects', $projects)->with('users', $users)->with('tasks', $tasks);
     }
 

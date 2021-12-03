@@ -4,13 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
 	       <div class="col-md-12 text-right">
-		      <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalProyectos">Crear nuevo proyecto</a>
+		      <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalProyectos">Escribir nueva reseña</a>
 	     </div>
     </div>
 
     <div class="row">
     	<div class="col-md-12">
-    		<h4>Mis proyectos</h4>
+    		<h4>Mis Reseñas</h4>
     		<hr>
     	</div>
     	@foreach($projects as $project)
